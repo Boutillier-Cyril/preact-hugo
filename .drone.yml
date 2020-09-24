@@ -10,9 +10,8 @@ steps:
       - cd martini
       - npm install
       - npm run build
-    notify:
-      - name: slack
-        image: plugins/slack
-        settings:
-          webhook: 
-              from_secret : Slack
+  - name: slack
+    image: plugins/slack
+    settings:
+      webhook: 
+          from_secret : Slack
