@@ -9,10 +9,11 @@ steps:
       - preact create Boutillier-Cyril/preact-hugo martini
       - cd martini
       - npm install
-      - npm start
+      - npm run build
     notify:
       - name: slack
         image: plugins/slack
         settings:
-            webhook: 
+          webhook: 
               from secret : Slack
+          channel: drone-ci
