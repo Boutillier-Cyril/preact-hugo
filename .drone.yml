@@ -16,4 +16,3 @@ steps:
         settings:
           webhook: 
               from secret : Slack
-          channel: drone-ci
