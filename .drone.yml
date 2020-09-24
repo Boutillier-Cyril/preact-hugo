@@ -15,3 +15,5 @@ steps:
     settings:
       webhook: 
           from_secret : Slack
+      templates: >
+        Qu'est ce qu'on s'amuse
