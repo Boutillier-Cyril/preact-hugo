@@ -18,8 +18,8 @@ steps:
       webhook: 
           from_secret : Slack
       templates: >
-      {{#success build.status}}
+        {{#success build.status}}
          https://rickrolled.fr/
-      {{else}}
-        ??? :dogshit:
-      {{/success}}
+        {{else}}
+          ??? :dogshit:
+        {{/success}}
