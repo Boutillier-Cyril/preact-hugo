@@ -1,12 +1,12 @@
 kind: pipeline
 type: docker
 name: un-nom
-
+hugo_env: &hugo_env
+  BASE_URL: https://${DRONE_REPO_OWNER,,}.github.io/${DRONE_REPO_NAME}/
 steps:
   - name: hello-world
     image: lowess/preact-cli
     commands:
-      - export BASE_URL ${DRONE_REPO_OWNER}.github.io/preact-cli/
       - preact create ${DRONE_REPO}#${DRONE_COMMIT} martini
       - cd martini
       - npm install
