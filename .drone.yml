@@ -5,11 +5,14 @@ name: un-nom
 steps:
   - name: hello-world
     image: lowess/preact-cli
-    environment :
-        SLACK: 
-            from secret : Slack
     commands:
       - preact create Boutillier-Cyril/preact-hugo martini
       - cd martini
       - npm install
       - npm start
+    notify:
+      - name: slack
+        image: plugins/slack
+        settings:
+            webhook: 
+              from secret : Slack
