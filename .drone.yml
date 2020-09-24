@@ -4,6 +4,12 @@ name: un-nom
 
 steps:
   - name: hello-world
-    image: busybox
+    image: lowess/preact-cli
+    environment :
+        SLACK: 
+            from secret : Slack
     commands:
-      - echo 'Hello world'
+      - preact create Boutillier-Cyril/preact-hugo martini
+      - cd martini
+      - npm install
+      - npm start
