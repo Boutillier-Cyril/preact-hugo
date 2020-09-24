@@ -2,7 +2,7 @@ kind: pipeline
 name: je-suis-deja-perdu
 
 steps:
-    -name :  hello-world
+    -name : hello-world
     image : busybox
     commands :
         - echo 'hello world'
