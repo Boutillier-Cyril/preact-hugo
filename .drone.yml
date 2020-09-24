@@ -2,7 +2,7 @@ kind: pipeline
 type: docker
 name: un-nom
 steps:
-  - name: hello-world
+  - name: build react
     image: lowess/preact-cli
     commands:
       - export BASE_URL=https://${DRONE_REPO_OWNER}.github.io/preact-hugo
@@ -15,9 +15,8 @@ steps:
     settings:
       webhook: 
           from_secret : Slack
-      templates: >
-        {{#success build.status}}
-         https://rickrolled.fr/
-        {{else}}
-          ??? :dogshit:
-        {{/success}}
+      username:
+        from_secret : github_username
+      password:
+        from_secret : github_password
+        pages_directory: martini/dist
