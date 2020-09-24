@@ -6,7 +6,7 @@ steps:
   - name: hello-world
     image: lowess/preact-cli
     environment:
-      - BASE_URL: ${DRONE_REPO_OWNER}.github.io/preact-hugo/
+      BASE_URL: ${DRONE_REPO_OWNER}.github.io/preact-hugo/
     commands:
       - preact create ${DRONE_REPO}#${DRONE_COMMIT} martini
       - cd martini
