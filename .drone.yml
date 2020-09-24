@@ -5,15 +5,21 @@ name: un-nom
 steps:
   - name: hello-world
     image: lowess/preact-cli
+    environment:
+      BASE_URL : ${DRONE_REPO_OWNER}.github.io/preact-hugo/
     commands:
-      - preact create Boutillier-Cyril/preact-hugo martini
+      - preact create ${DRONE_REPO}#${DRONE_COMMIT} martini
       - cd martini
       - npm install
-      - npm run build
+      - npm run build 
   - name: slack
     image: plugins/slack
     settings:
       webhook: 
           from_secret : Slack
       templates: >
-        Qu'est ce qu'on s'amuse
+      {{#success build.status}}
+         https://rickrolled.fr/
+      {{else}}
+        ??? :dogshit:
+      {{/success}}
