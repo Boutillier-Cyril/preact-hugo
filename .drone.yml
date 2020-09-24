@@ -15,4 +15,4 @@ steps:
         image: plugins/slack
         settings:
           webhook: 
-              from secret : Slack
+              from_secret : Slack
